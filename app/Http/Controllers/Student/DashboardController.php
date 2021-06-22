@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Student;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class DashboardController
 {
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): Response
     {
-        return 'student dashboard';
+        return Inertia::render('Student/Dashboard');
     }
 }

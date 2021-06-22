@@ -1,7 +1,7 @@
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 
-export default ({ command }) => ({
+export default ({command}) => ({
     base: command === 'serve' ? '' : '/build/',
     publicDir: 'false',
     build: {
@@ -16,18 +16,5 @@ export default ({ command }) => ({
             '@': path.resolve('resources/js'),
         },
     },
-    plugins: [
-        vue(),
-        {
-            name: 'blade',
-            handleHotUpdate({ file, server }) {
-                if (file.endsWith('.blade.php')) {
-                    server.ws.send({
-                        type: 'full-reload',
-                        path: '*',
-                    });
-                }
-            },
-        }
-    ]
+    plugins: [vue()]
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Route;
@@ -15,7 +16,7 @@ class HomepageController
         return Inertia::render('Welcome', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
-//            'laravelVersion' => Application::VERSION,
+            'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
             'dashboardUrl' => $request->user()->dashboard(),
 //            'academicLevels' => $this->collect(AcademicLevel::all()),
@@ -27,6 +28,6 @@ class HomepageController
     private function collect(Collection $collection): Collection
     {
         return $collection
-            ->mapWithKeys(fn($item)=>[$item->id=>$item->name]);
+            ->mapWithKeys(fn($item) => [$item->id => $item->name]);
     }
 }
