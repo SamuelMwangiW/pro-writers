@@ -41,7 +41,7 @@
 </template>
 
 <script>
-    import JetActionMessage from '@/Jetstream/ActionMessage'
+    import JetActionMessage from '@/Jetstream/ActionMessage.vue'
     import JetButton from '@/Jetstream/Button.vue'
     import JetFormSection from '@/Jetstream/FormSection.vue'
     import JetInput from '@/Jetstream/Input.vue'

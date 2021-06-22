@@ -87,7 +87,7 @@
 </template>
 
 <script>
-    import JetActionMessage from '@/Jetstream/ActionMessage'
+    import JetActionMessage from '@/Jetstream/ActionMessage.vue'
     import JetActionSection from '@/Jetstream/ActionSection.vue'
     import JetButton from '@/Jetstream/Button.vue'
     import JetDialogModal from '@/Jetstream/DialogModal.vue'
