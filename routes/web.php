@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomepageController::class);
+Route::get('/', HomepageController::class)->name('welcome');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/dashboard', RedirectToDashboardController::class)->name('dashboard');

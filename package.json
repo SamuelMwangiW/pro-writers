@@ -6,6 +6,7 @@
         "prod": "vite build"
     },
     "devDependencies": {
+        "@heroicons/vue": "^1.0.1",
         "@inertiajs/inertia": "^0.9.1",
         "@inertiajs/inertia-vue3": "^0.4.2",
         "@inertiajs/progress": "^0.2.5",

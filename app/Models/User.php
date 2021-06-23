@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Support\Enum\UserType;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use JetBrains\PhpStorm\Pure;
@@ -56,6 +58,16 @@ class User extends Authenticatable implements MustVerifyEmail
         return UserType::role($this->type);
     }
 
+    /** scopes */
+
+    public function scopeDraft($builder)
+    {
+        dd($builder);
+        return $builder->where();
+    }
+
+    /** class methods */
+
     #[Pure]
     public function hasRole(string $role): bool
     {
@@ -67,8 +79,20 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->type === UserType::ADMIN;
     }
 
-    function dashboard(): string
+    public function isWriter(): bool
+    {
+        return $this->type === UserType::WRITER;
+    }
+
+    public function dashboard(): string
     {
         return url('/');
+    }
+
+    /** Relationships */
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
     }
 }
